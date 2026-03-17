@@ -1,10 +1,10 @@
 class Base < Formula
   desc "Internal SwiftUI app scaffolder"
   homepage "https://github.com/minhvblc/BaseProject"
-  url "git@github.com:minhvblc/BaseProject.git",
-      tag:      "0.1.0",
-      revision: "da86b70a3d46a02f4ca3947f3c85fa6ed2ebbfa9"
-  version "0.1.0"
+  url "https://github.com/minhvblc/BaseProject.git",
+      tag:      "0.1.1",
+      revision: "967b5ef29d0271fbba36281fe7f767cf94711153"
+  version "0.1.1"
   license :cannot_represent
 
   depends_on "xcodegen"
