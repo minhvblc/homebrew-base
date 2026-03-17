@@ -2,12 +2,13 @@ class Base < Formula
   desc "Internal SwiftUI app scaffolder"
   homepage "https://github.com/minhvblc/BaseProject"
   url "https://github.com/minhvblc/BaseProject.git",
-      tag:      "0.1.1",
-      revision: "967b5ef29d0271fbba36281fe7f767cf94711153"
-  version "0.1.1"
+      tag:      "0.1.3",
+      revision: "01fd100279544982deb972a300dacbef23b7c414"
+  version "0.1.3"
   license :cannot_represent
 
   depends_on "xcodegen"
+  depends_on "cocoapods"
 
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release", "--product", "base", "--package-path", "base-cli"
@@ -34,11 +35,14 @@ class Base < Formula
       "--app-name", "Smoke App",
       "--target-name", "SmokeApp",
       "--bundle-id", "com.example.smokeapp",
+      "--with-cocoapods",
       "--output", output_path,
       "--skip-generate",
+      "--skip-pod-install",
       "--no-input"
 
     assert_path_exists output_path/"project.yml"
+    assert_path_exists output_path/"Podfile"
     assert_match "name: SmokeApp", (output_path/"project.yml").read
   end
 end
